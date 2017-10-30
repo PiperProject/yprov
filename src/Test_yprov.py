@@ -275,18 +275,24 @@ class Test_yprov( unittest.TestCase ) :
     expected_nodeset = ['"G_a(str2)"', \
                         '"R_a_prov0(str2)"', \
                         '"G_b(_,str2)"', \
+                        '"G_b(0,str2)"', \
                         '"F_b(0,str2)"', \
                         '"R_a_prov1(str2)"', \
                         '"G_c(_,str2)"', \
+                        '"G_c(2,str2)"', \
                         '"F_c(2,str2)"', \
+                        '"G_c(1,str2)"', \
                         '"F_c(1,str2)"']
     expected_edgeset = [['"G_a(str2)"', '"R_a_prov0(str2)"'], \
                         ['"R_a_prov0(str2)"', '"G_b(_,str2)"'], \
-                        ['"G_b(_,str2)"', '"F_b(0,str2)"'], \
+                        ['"G_b(_,str2)"', '"G_b(0,str2)"'], \
+                        ['"G_b(0,str2)"', '"F_b(0,str2)"'], \
                         ['"G_a(str2)"', '"R_a_prov1(str2)"'], \
                         ['"R_a_prov1(str2)"', '"G_c(_,str2)"'], \
-                        ['"G_c(_,str2)"', '"F_c(2,str2)"'], \
-                        ['"G_c(_,str2)"', '"F_c(1,str2)"']]
+                        ['"G_c(_,str2)"', '"G_c(2,str2)"'], \
+                        ['"G_c(2,str2)"', '"F_c(2,str2)"'], \
+                        ['"G_c(_,str2)"', '"G_c(1,str2)"'], \
+                        ['"G_c(1,str2)"', '"F_c(1,str2)"']]
 
     self.assertEqual( actual_nodeset, expected_nodeset )
     self.assertEqual( actual_edgeset, expected_edgeset )
@@ -311,10 +317,12 @@ class Test_yprov( unittest.TestCase ) :
     expected_nodeset = ['"G_a(str1)"', \
                         '"R_a_prov0(str1)"', \
                         '"G_b(_,str1)"', \
+                        '"G_b(0,str1)"', \
                         '"F_b(0,str1)"']
     expected_edgeset = [['"G_a(str1)"', '"R_a_prov0(str1)"'], \
                         ['"R_a_prov0(str1)"', '"G_b(_,str1)"'], \
-                        ['"G_b(_,str1)"', '"F_b(0,str1)"']]
+                        ['"G_b(_,str1)"', '"G_b(0,str1)"'], \
+                        ['"G_b(0,str1)"', '"F_b(0,str1)"']]
 
     self.assertEqual( actual_nodeset, expected_nodeset )
     self.assertEqual( actual_edgeset, expected_edgeset )
@@ -424,16 +432,22 @@ class Test_yprov( unittest.TestCase ) :
     expected_nodeset = ['"G_a(str1,str2)"', \
                         '"R_a_prov0(str1,str2)"', \
                         '"G_c(_,str2)"', \
+                        '"G_c(2,str2)"', \
                         '"F_c(2,str2)"', \
+                        '"G_c(1,str2)"', \
                         '"F_c(1,str2)"', \
                         '"G_b(_,str1)"', \
+                        '"G_b(0,str1)"', \
                         '"F_b(0,str1)"']
     expected_edgeset = [['"G_a(str1,str2)"', '"R_a_prov0(str1,str2)"'], \
                         ['"R_a_prov0(str1,str2)"', '"G_c(_,str2)"'], \
-                        ['"G_c(_,str2)"', '"F_c(2,str2)"'], \
-                        ['"G_c(_,str2)"', '"F_c(1,str2)"'], \
+                        ['"G_c(_,str2)"', '"G_c(2,str2)"'], \
+                        ['"G_c(2,str2)"', '"F_c(2,str2)"'], \
+                        ['"G_c(_,str2)"', '"G_c(1,str2)"'], \
+                        ['"G_c(1,str2)"', '"F_c(1,str2)"'], \
                         ['"R_a_prov0(str1,str2)"', '"G_b(_,str1)"'], \
-                        ['"G_b(_,str1)"', '"F_b(0,str1)"']]
+                        ['"G_b(_,str1)"', '"G_b(0,str1)"'], \
+                        ['"G_b(0,str1)"', '"F_b(0,str1)"']]
 
     self.assertEqual( actual_nodeset, expected_nodeset )
     self.assertEqual( actual_edgeset, expected_edgeset )
@@ -619,11 +633,15 @@ class Test_yprov( unittest.TestCase ) :
 
     expected_nodeset = ['"G_a(0,1)"', \
                         '"R_a_prov0(0,1,str10)"', \
+                        '"G_c(str10,1)"', \
                         '"F_c(str10,1)"', \
+                        '"G_b(0,str10)"', \
                         '"F_b(0,str10)"']
     expected_edgeset = [['"G_a(0,1)"', '"R_a_prov0(0,1,str10)"'], \
-                        ['"R_a_prov0(0,1,str10)"', '"F_c(str10,1)"'], \
-                        ['"R_a_prov0(0,1,str10)"', '"F_b(0,str10)"']]
+                        ['"R_a_prov0(0,1,str10)"', '"G_c(str10,1)"'], \
+                        ['"G_c(str10,1)"', '"F_c(str10,1)"'], \
+                        ['"R_a_prov0(0,1,str10)"', '"G_b(0,str10)"'], \
+                        ['"G_b(0,str10)"', '"F_b(0,str10)"']]
 
     self.assertEqual( actual_nodeset, expected_nodeset )
     self.assertEqual( actual_edgeset, expected_edgeset )
