@@ -9,7 +9,7 @@ def unittest_driver() :
 
   print
   print "************************************"
-  print "*   RUNNING TEST SUITE FOR QUEST   *"
+  print "*   RUNNING TEST SUITE FOR YPROV   *"
   print "************************************"
   print
 
