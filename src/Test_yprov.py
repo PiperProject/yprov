@@ -15,7 +15,7 @@ from StringIO import StringIO
 import YProv
 
 
-SAVEPATH = "/Users/KsComp/projects/piper/src/packages/yprov/src"
+SAVEPATH = os.path.abspath( __file__ + "/../../../yprov/src" )
 
 
 ################
